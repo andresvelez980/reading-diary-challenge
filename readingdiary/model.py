@@ -32,3 +32,20 @@ class Book:
         self.notes.append(note)
 
         return True
+
+    def set_rating(self, rating: int) -> bool:
+
+        if rating not in (Book.EXCELLENT, Book.GOOD, Book.BAD):
+            return False
+
+        self.rating = rating
+        return True
+    def get_notes_of_page(self, page: int) -> list[Note]:
+
+        result = []
+
+        for note in self.notes:
+            if note.page == page:
+                result.append(note)
+
+        return result
